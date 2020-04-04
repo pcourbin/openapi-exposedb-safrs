@@ -36,6 +36,7 @@ services:
       - DB_NAME=mydbname
       - DB_USER=user
       - DB_PASSWORD=password
+      - PORT=3000
     ports:
       - 3000:3000
 ```
@@ -59,3 +60,4 @@ docker-compose -f docker-compose.yml logs -f
 | `DB_NAME` | `mydb` | Database name. |
 | `DB_USER` | `user` | Username with access to your sql database. |
 | `DB_PASSWORD` | `password` | Password linked with `DB_USER`. |
+| `PORT` | `3000` | Port where the API will be deployed inside the docker. **Define the same PORT on your host and on the API inside the docker to be able to test it using the OpenAPI GUI** |

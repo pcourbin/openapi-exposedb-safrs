@@ -31,4 +31,10 @@ else
   DB_NAME_TEMP=$DB_NAME
 fi
 
-python3 expose_existing.py mysql+pymysql://$DB_USER_TEMP:$DB_PASSWORD_TEMP@$DB_HOST_TEMP:$DB_PORT_TEMP/$DB_NAME_TEMP --port 3000
+if [ -z "$PORT" ]; then
+  PORT_TEMP="3000"
+else
+  PORT_TEMP=$PORT
+fi
+
+python3 expose_existing.py mysql+pymysql://$DB_USER_TEMP:$DB_PASSWORD_TEMP@$DB_HOST_TEMP:$DB_PORT_TEMP/$DB_NAME_TEMP --port $PORT_TEMP
